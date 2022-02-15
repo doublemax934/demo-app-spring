@@ -1,6 +1,8 @@
 package ru.learnup.spring.demospringapp.services;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,14 +11,15 @@ import java.util.Map;
 import java.util.*;
 import java.util.stream.Collectors;
 
+@Service
 public class OnlineSalesRegister {
 
-    private String name;
+    private String name = "Театральная касса";
     private Map<String, TheatricalPerformance> mainPerformancesList = new HashMap<>();
 
-    public OnlineSalesRegister(String name)
+    public OnlineSalesRegister()
     {
-        this.name = name;
+//        this.name = name;
         this.mainPerformancesList.put("Князь Игорь",new TheatricalPerformance("Князь Игорь", "10.03.22_19.00", "6+",1500,1000,500, 1));
         this.mainPerformancesList.put("Руслан и Людмила",new TheatricalPerformance("Руслан и Людмила", "20.03.22_19.00", "8+",1500, 1000, 500, 2));
         this.mainPerformancesList.put("Кармен",new TheatricalPerformance("Кармен", "27.03.22_19.00", "12+",1500, 1000, 500, 3));
@@ -24,11 +27,6 @@ public class OnlineSalesRegister {
         this.mainPerformancesList.put("Травиата",new TheatricalPerformance("Травиата", "15.04.22_19.00", "7+",1500, 1000, 500, 5));
     }
 
-//    public void addPerformance (String title, TheatricalPerformance performance) {
-//        if (mainPerformancesList.containsKey(title)) {
-//            mainPerformancesList.replace(title, performance);
-//        } else mainPerformancesList.put(title, performance);
-//    }
     public void addPerformance () {
         TheatricalPerformance performance = new TheatricalPerformance();
         System.out.println("Добавление премьеры:");
